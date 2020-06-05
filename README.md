@@ -5,7 +5,7 @@ Prerequisites:
 
 How-Tos
 
-1) In your linux machine, using your facourite text editor, open /root/.bash_profile 
+1) In your linux machine, using your favourite text editor, open /root/.bash_profile 
 2) Copy contents of .bash_profile (of this repository) to  your .bash_profile file
 3) Close text editor and in terminal run: source /root/.bash_profile
 
