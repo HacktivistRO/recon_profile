@@ -3,7 +3,7 @@ xss()
 {
 assetfinder $1 -subs-only | gau | grep '=' | qsreplace hack\" -a | while read url;do target=$(curl -s -l $url | egrep -o '(hack"|hack\\")'); echo -e "Target:\e[1;33m $url\e[0m" "$target" "\n-------"; done | sed 's/hack"/[Xss Possible] Reflection Found/g'
 }
-# command to find unique subdomains from certspotter and crt.sh
+# command to find unique live subdomains 
 subdomains()
 {
 curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1 > 1.txt
