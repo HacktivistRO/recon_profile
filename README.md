@@ -19,6 +19,7 @@ How-To
 3) Copy contents of .bash_profile (of this repository) to  your .bash_profile file
 4) Save the file and close text editor 
 5) In terminal, run: source /root/.bash_profile
+6) echo "source /root/.bash_profile" >> /root/.bashrc
 
 About xss()
 --
