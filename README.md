@@ -10,16 +10,28 @@ Prerequisites:
 How-To
 
 1) Run following commands to install the dependencies for .bash_profile
-  - sudo apt install -y golang-go
-  - go get -u github.com/tomnomnom/assetfinder
-  - GO111MODULE=on go get -u -v github.com/lc/gau
-  - go get -u github.com/tomnomnom/qsreplace
-  - GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
-2) In your linux machine, using your favourite text editor, open /root/.bash_profile (like mousepad /root/.bash_profile)
+           
+       sudo apt install -y golang-go
+
+       go get -u github.com/tomnomnom/assetfinder
+ 
+       GO111MODULE=on go get -u -v github.com/lc/gau
+  
+       go get -u github.com/tomnomnom/qsreplace
+      
+       GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+       
+2) In your linux machine, using your favourite text editor, open /root/.bash_profile like 
+
+       mousepad /root/.bash_profile
+       
 3) Copy contents of .bash_profile (of this repository) to  your .bash_profile file
 4) Save the file and close text editor 
-5) In terminal, run: source /root/.bash_profile
-6) echo "source /root/.bash_profile" >> /root/.bashrc
+5) In terminal, run:
+
+       source /root/.bash_profile
+ 
+       echo "source /root/.bash_profile" >> /root/.bashrc
 
 About xss()
 --
