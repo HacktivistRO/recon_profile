@@ -19,7 +19,7 @@ Run following commands to install the dependencies for .bash_profile
     go get -u github.com/tomnomnom/qsreplace
     GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 
-In terminal, run:
+After all the requirements have been satisfied, run:
 
     git clone https://github.com/HacktivistRO/recon_profile/
     cd recon_profile
