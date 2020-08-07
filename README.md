@@ -23,9 +23,9 @@ How-To
 To use xss()
 --
 To use xss(), you need to write
-    xss <your-target-website-here>
+          xss <your-target-website-here>
 such as
-    xss leettime.net
+            xss leettime.net
  
  OR
  
