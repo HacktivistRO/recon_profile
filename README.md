@@ -1,13 +1,15 @@
 # Namaste 🙏
 This repository contains my .bash_profile that has some user-defined functions for automating tasks using BASH
 
-Prerequisites:
+Prerequisites
+--
 1) Assetfinder: https://github.com/tomnomnom/assetfinder
 2) GAU: https://github.com/lc/gau
 3) QSReplace: https://github.com/tomnomnom/qsreplace
 4) SubFinder: https://github.com/projectdiscovery/subfinder
 
 How-To
+--
 
 Run following commands to install the dependencies for .bash_profile
 
