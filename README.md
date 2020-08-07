@@ -1,5 +1,5 @@
 # Namaste 🙏
-This repository contans by .bash_profile that has some user-defined functions for automating tasks using BASH
+This repository contains my .bash_profile that has some user-defined functions for automating tasks using BASH
 
 Prerequisites:
 1) Assetfinder: https://github.com/tomnomnom/assetfinder
@@ -14,11 +14,11 @@ How-To
 3) Save the file and close text editor 
 4) In terminal run: source /root/.bash_profile
 5) Run following commands to install the the dependencies for .bash_profile
- - sudo apt install -y golang-go
- - go get -u github.com/tomnomnom/assetfinder
- - GO111MODULE=on go get -u -v github.com/lc/gau
- - go get -u github.com/tomnomnom/qsreplace
- - GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+  - sudo apt install -y golang-go
+  - go get -u github.com/tomnomnom/assetfinder
+  - GO111MODULE=on go get -u -v github.com/lc/gau
+  - go get -u github.com/tomnomnom/qsreplace
+  - GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
  
  OR
  
