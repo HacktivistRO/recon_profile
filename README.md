@@ -23,7 +23,7 @@ How-To
 About xss()
 --
 
-This command will find all subdomains (using AssetFinder) then all parameters will be fetched (using GAU) then hack\" will be replaced (using QSReplace) and in the response if something like hack\" is found (that means no input validation was done), then you'll be shown all URLs vulnerable to reflected XSS
+This command will find all subdomains (using AssetFinder) then all parameters will be fetched (using GAU) then hack\" will be replaced (using QSReplace) and in the response if something like hack\" is found (that means no input validation was done), and this is how you'll be shown URLs vulnerable to reflected XSS
 
 To use xss(), you need to write
     
