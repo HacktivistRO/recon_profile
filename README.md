@@ -9,7 +9,7 @@ Prerequisites:
 
 How-To
 
-1) Run following commands to install the the dependencies for .bash_profile
+1) Run following commands to install the dependencies for .bash_profile
   - sudo apt install -y golang-go
   - go get -u github.com/tomnomnom/assetfinder
   - GO111MODULE=on go get -u -v github.com/lc/gau
@@ -33,7 +33,7 @@ such as
 
     xss leettime.net
  
- OR
+ # OR
  
 You can simply run this [script](https://github.com/HacktivistRO/HackBox/) and all the neccessary things will done automatically by this script.
 <p align=centre>
