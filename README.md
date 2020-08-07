@@ -20,8 +20,10 @@ How-To
 4) Save the file and close text editor 
 5) In terminal, run: source /root/.bash_profile
 
-To use xss()
+About xss()
 --
+
+This command will find all subdomains (using AssetFinder) then all parameters will be fetched (using GAU) then hack\" will be replaced (using QSReplace) and in the response if something like hack\" is found (that means no input validation was done), then you'll be shown all URLs vulnerable to reflected XSS
 
 To use xss(), you need to write
     
