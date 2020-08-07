@@ -10,7 +10,7 @@ Prerequisites:
 How-To
 
 1) Run following commands to install the dependencies for .bash_profile
-           
+
        sudo apt install -y golang-go
        go get -u github.com/tomnomnom/assetfinder
        GO111MODULE=on go get -u -v github.com/lc/gau
@@ -19,12 +19,16 @@ How-To
 
 In terminal, run:
 
-    git clone https://github.com/HacktivistRO/recon_profile/
-    cd recon_profile
-    cat .bash_profile >> ~/.bash_profile
-    source ~/.bash_profile
-    echo "source ~/.bash_profile" >> /root/.bashrc
-    echo ".bash_profile has been set-up"
+       git clone https://github.com/HacktivistRO/recon_profile/
+       cd recon_profile
+       cat .bash_profile >> ~/.bash_profile
+       source ~/.bash_profile
+       echo "source ~/.bash_profile" >> /root/.bashrc
+       echo ".bash_profile has been set-up"
+       
+ ### OR
+ 
+You can simply run this [script](https://github.com/HacktivistRO/HackBox/) and all the neccessary things will done automatically by this script.
 
 About xss()
 --
@@ -33,17 +37,12 @@ This command will find all subdomains (using AssetFinder) then all parameters wi
 
 To use xss(), you need to write
     
-    xss <your-target-website-here>
+       xss <your-target-website-here>
 
 such as
 
-    xss leettime.net
+       xss leettime.net
  
- ### OR
- 
-You can simply run this [script](https://github.com/HacktivistRO/HackBox/) and all the neccessary things will done automatically by this script.
 <p align="center">
 Happy Hacking!:heart:
 </p>
-
-
