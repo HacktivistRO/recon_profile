@@ -3,26 +3,32 @@ This repository contains my .bash_profile that has some user-defined functions f
 
 Prerequisites
 --
-1) Assetfinder: https://github.com/tomnomnom/assetfinder
-2) GAU: https://github.com/lc/gau
-3) QSReplace: https://github.com/tomnomnom/qsreplace
-4) SubFinder: https://github.com/projectdiscovery/subfinder
+1) Go Language 
+2) Assetfinder: https://github.com/tomnomnom/assetfinder
+3) GAU: https://github.com/lc/gau
+4) QSReplace: https://github.com/tomnomnom/qsreplace
+5) SubFinder: https://github.com/projectdiscovery/subfinder
 
 How-To
 --
 
 Run following commands to install the dependencies for .bash_profile
 
+For installing Go Language
+
     wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
     sudo tar -xvf go1.13.4.linux-amd64.tar.gz
-	sudo mv go /usr/local
-	export GOROOT=/usr/local/go
-	export GOPATH=$HOME/go
-	export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-	echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
-	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
-	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile	
-	source ~/.bash_profile
+    sudo mv go /usr/local
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+    echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
+    echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
+    echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile	
+    source ~/.bash_profile
+    
+For installing required tools
+    
     go get -u github.com/tomnomnom/assetfinder
     GO111MODULE=on go get -u -v github.com/lc/gau
     go get -u github.com/tomnomnom/qsreplace
