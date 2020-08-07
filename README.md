@@ -1,3 +1,6 @@
+# Namaste 🙏
+This repository contans by .bash_profile that has some user-defined functions for automating tasks using BASH
+
 Prerequisites:
 1) Assetfinder: https://github.com/tomnomnom/assetfinder
 2) Gau: https://github.com/lc/gau
@@ -11,11 +14,16 @@ How-To
 3) Save the file and close text editor 
 4) In terminal run: source /root/.bash_profile
 5) Run following commands to install the the dependencies for .bash_profile
- - sudo apt install golang-go
+ - sudo apt install -y golang-go
  - go get -u github.com/tomnomnom/assetfinder
  - GO111MODULE=on go get -u -v github.com/lc/gau
  - go get -u github.com/tomnomnom/qsreplace
  - GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+ 
+ OR
+ 
+You can simply run this [script](https://github.com/HacktivistRO/HackBox/) and all the neccessary things will done automatically by this script.
+<p align=centre>
+Happy Hacking! :heart: 
+</p>
 
-GOOD TO GO! 
-                  Happy Hacking ;)
