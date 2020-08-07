@@ -9,22 +9,22 @@ Prerequisites:
 
 How-To
 
-1) Run following commands to install the dependencies for .bash_profile
+Run following commands to install the dependencies for .bash_profile
 
-       sudo apt install -y golang-go
-       go get -u github.com/tomnomnom/assetfinder
-       GO111MODULE=on go get -u -v github.com/lc/gau
-       go get -u github.com/tomnomnom/qsreplace
-       GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+    sudo apt install -y golang-go
+    go get -u github.com/tomnomnom/assetfinder
+    GO111MODULE=on go get -u -v github.com/lc/gau
+    go get -u github.com/tomnomnom/qsreplace
+    GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 
 In terminal, run:
 
-       git clone https://github.com/HacktivistRO/recon_profile/
-       cd recon_profile
-       cat .bash_profile >> ~/.bash_profile
-       source ~/.bash_profile
-       echo "source ~/.bash_profile" >> /root/.bashrc
-       echo ".bash_profile has been set-up"
+    git clone https://github.com/HacktivistRO/recon_profile/
+    cd recon_profile
+    cat .bash_profile >> ~/.bash_profile
+    source ~/.bash_profile
+    echo "source ~/.bash_profile" >> /root/.bashrc
+    echo ".bash_profile has been set-up"
        
  ### OR
  
