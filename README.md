@@ -37,11 +37,11 @@ This command will find all subdomains (using AssetFinder) then all parameters wi
 
 To use xss(), you need to write
     
-       xss <your-target-website-here>
+    xss <your-target-website-here>
 
 such as
 
-       xss leettime.net
+    xss leettime.net
  
 <p align="center">
 Happy Hacking!:heart:
