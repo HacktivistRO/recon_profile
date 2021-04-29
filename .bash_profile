@@ -6,9 +6,8 @@ assetfinder $1 -subs-only | gau | grep '=' | qsreplace hack\" -a | while read ur
 # command to find unique live subdomains 
 subdomains()
 {
-curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1 > 1.txt
-curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 2.txt
-subfinder -d $1 -silent > 3.txt
-cat 1.txt 2.txt 3.txt | sort -u | httprobe -prefer-https > subdomains_$1.txt
-rm 1.txt 2.txt 3.txt 
+curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 1.txt
+subfinder -d $1 -silent -recursive -all > 2.txt
+cat 1.txt 2.txt | sort -u | httprobe -prefer-https > subdomains_$1.txt
+rm 1.txt 2.txt 
 }
