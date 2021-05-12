@@ -7,15 +7,20 @@ rm subdomains_$1.txt
 # command to find unique live subdomains 
 subdomains()
 {
+echo "Running Sublist3r now"
+sublist3r -d $1 -o 1.txt
+sleep 2
+clear
+echo "Sublist3r done"
 echo "Running crt.sh now"
-curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 1.txt
+curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 2.txt
 echo "crt.sh done"
 echo "Running subfinder now"
-subfinder -d $1 -silent -recursive -all > 2.txt
+subfinder -d $1 -silent -recursive -all > 3.txt
 echo "Subfinder done"
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt | sort -u | httprobe -prefer-https > subdomains_$1.txt
-rm 1.txt 2.txt 
+cat 1.txt 2.txt 3.txt | sort -u | httprobe -prefer-https > subdomains_$1.txt
+rm 1.txt 2.txt 3.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains for $1"
 cat subdomains_$1.txt
