@@ -2,6 +2,7 @@
 xss() 
 {
 subdomains $1
+echo "Subdomain enumeration done. Now finding Reflected XSS on them."
 printf subdomains_$1.txt | gau | grep '=' | qsreplace hack\" -a | while read url;do target=$(curl -s -l $url | egrep -o '(hack"|hack\\")'); echo -e "Target:\e[1;33m $url\e[0m" "$target" "\n-------"; done | sed 's/hack"/[Xss Possible] Reflection Found/g'
 rm subdomains_$1.txt
 }
