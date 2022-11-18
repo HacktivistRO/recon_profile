@@ -10,15 +10,23 @@ rm subdomains_$1.txt
 subdomains()
 {
 echo "Running Cero now"
-cero -d $1 > 1.txt
+cero -d $1 | sort -u  > 1.txt
+echo  "Subdomains found from cero are"
+cat 1.txt
 sleep 2
 clear
 echo "Cero done"
 echo "Running crt.sh now"
 curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 2.txt
+echo "subdomains found from crt.sh are"
+cat 2.txt
 echo "crt.sh done"
+sleep 2
+clear
 echo "Running subfinder now"
-subfinder -d $1 -silent -recursive -all > 3.txt
+subfinder -d $1 -silent -recursive -all | sort -u > 3.txt
+echo "subdomains from subfinder are"
+cat 3.txt
 echo "Subfinder done"
 echo "Removing duplicate and dead subdomains now"
 cat 1.txt 2.txt 3.txt | sort -u | httprobe > subdomains_$1.txt
