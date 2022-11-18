@@ -10,7 +10,7 @@ rm subdomains_$1.txt
 subdomains()
 {
 echo "Running Cero now"
-cero -d $1 -o 1.txt
+cero -d $1 > 1.txt
 sleep 2
 clear
 echo "Cero done"
