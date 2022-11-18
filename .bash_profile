@@ -9,11 +9,11 @@ rm subdomains_$1.txt
 # command to find unique live subdomains 
 subdomains()
 {
-echo "Running Sublist3r now"
-sublist3r -d $1 -o 1.txt
+echo "Running Cero now"
+cero -d $1 -o 1.txt
 sleep 2
 clear
-echo "Sublist3r done"
+echo "Cero done"
 echo "Running crt.sh now"
 curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF' > 2.txt
 echo "crt.sh done"
