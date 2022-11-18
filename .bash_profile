@@ -29,7 +29,7 @@ echo "subdomains from subfinder are"
 cat 3.txt
 echo "Subfinder done"
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt | grep ">*.$1" sort -u | httprobe > subdomains_$1.txt
+cat 1.txt 2.txt 3.txt | grep ">*.$1" | sort -u | httprobe > subdomains_$1.txt
 rm 1.txt 2.txt 3.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains for $1"
