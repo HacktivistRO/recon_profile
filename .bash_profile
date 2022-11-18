@@ -10,7 +10,7 @@ rm subdomains_$1.txt
 subdomains()
 {
 echo "Running Cero now"
-cero -d $1 | grep ">*.$1" | sort -u  > 1.txt
+cero -d $1 | grep -vE "<|^[\*]*[\.]*$1" | sort -u  > 1.txt
 echo  "Subdomains found from cero are"
 cat 1.txt
 sleep 2
@@ -26,14 +26,14 @@ echo "crt.sh done"
 sleep 2
 clear
 echo "Running subfinder now"
-subfinder -d $1 -silent -recursive -all | grep ">*.$1" | sort -u > 3.txt
+subfinder -d $1 -silent -recursive -all | grep -vE "<|^[\*]*[\.]*$1" | sort -u > 3.txt
 echo "subdomains from subfinder are"
 cat 3.txt
 echo "Subfinder done"
 sleep 2
 clear
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt | grep -vE "<|^[\*]*[\.]*$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
