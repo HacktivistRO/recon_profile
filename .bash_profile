@@ -30,6 +30,8 @@ subfinder -d $1 -silent -recursive -all | grep ">*.$1" | sort -u > 3.txt
 echo "subdomains from subfinder are"
 cat 3.txt
 echo "Subfinder done"
+sleep 2
+clear
 echo "Removing duplicate and dead subdomains now"
 cat 1.txt 2.txt 3.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
