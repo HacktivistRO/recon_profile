@@ -8,7 +8,8 @@ rm subdomains_$1.txt
 }
 # command to find unique live subdomains 
 subdomains()
-{echo "Running Cero now"
+{
+echo "Running Cero now"
 cero -d $1 | grep ">*.$1" | sort -u  > 1.txt
 sed -i 's/\*.//' 1.txt
 sed -i 's/\.//' 1.txt 
