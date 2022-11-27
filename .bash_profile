@@ -54,7 +54,7 @@ clear
 #sleep 2
 #clear
 echo "enumerating subdomains using OpenSSL now"
-openssl s_client -ign_eof 2>/dev/null <<< $'HEAD / HTTP/1.0\r\n\r' -connect "$1:443" | openssl x509 -noout -text -in - | grep 'DNS' | sed -e 's|DNS:|\n|g' -e 's|^\*.*||g' | tr -d ',' > 6.txt
+openssl s_client -ign_eof 2>/dev/null <<< $'HEAD / HTTP/1.0\r\n\r' -connect "$1:443" | openssl x509 -noout -text -in - | grep 'DNS' | sed -e 's|DNS:|\n|g' -e 's|^\*.*||g' | tr -d ',' | sort -u > 6.txt
 sed -i 's/\*.//' 6.txt
 echo "Subdomains from OpenSSL are"
 cat 6.txt
