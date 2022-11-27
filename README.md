@@ -4,9 +4,11 @@ This repository contains my .bash_profile that has some user-defined functions f
 Prerequisites
 --
 1) Go Language 
-2)  GAU: https://github.com/lc/gau
+2) GAU: https://github.com/lc/gau
 3) QSReplace: https://github.com/tomnomnom/qsreplace
 4) SubFinder: https://github.com/projectdiscovery/subfinder
+5) CSPRecon: https://github.com/edoardottt/csprecon
+6) Cero: https://github.com/glebarez/cero
 
 How-To
 --
@@ -31,6 +33,9 @@ For installing required tools
     GO111MODULE=on go get -u -v github.com/lc/gau
     go get -u github.com/tomnomnom/qsreplace
     GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+    go install github.com/edoardottt/csprecon/cmd/csprecon@latest
+    go install github.com/glebarez/cero@latest
+    
 
 After all the requirements have been satisfied, run:
 
