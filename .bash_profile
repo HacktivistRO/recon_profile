@@ -35,12 +35,20 @@ cat 3.txt
 echo "Subfinder done"
 sleep 2
 clear
+echo "Running CSPRecon now"
+csprecon -h $1 | grep ">*.$1" | sort -u > 4.txt
+sed -i 's/\*.//' 4.txt
+echo "Subdomains from CSPRecon are"
+cat 4.txt
+echo "CSPRecon done"
+sleep 2
+clear
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
-rm 1.txt 2.txt 3.txt subdomains.txt
+rm 1.txt 2.txt 3.txt 4.txt subdomains.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains for $1"
 cat subdomains_$1.txt
