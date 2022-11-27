@@ -53,8 +53,16 @@ clear
 #echo "OmniSINT done"
 #sleep 2
 #clear
+echo "enumerating subdomains using OpenSSL now"
+openssl s_client -ign_eof 2>/dev/null <<< $'HEAD / HTTP/1.0\r\n\r' -connect "$1:443" | openssl x509 -noout -text -in - | grep 'DNS' | sed -e 's|DNS:|\n|g' -e 's|^\*.*||g' | tr -d ',' > 6.txt
+sed -i 's/\*.//' 6.txt
+echo "Subdomains from OpenSSL are"
+cat 6.txt
+echo "OpenSSL done"
+sleep 2
+clear
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt 4.txt 5.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
