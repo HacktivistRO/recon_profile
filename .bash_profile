@@ -43,8 +43,18 @@ cat 4.txt
 echo "CSPRecon done"
 sleep 2
 clear
+#Omnisint is down from a few days and is expected to show up soon. Please uncomment the following lines once Omnisint is up
+#Please expect the error: "5.txt file not found" until Omnisint is up.
+#echo "Running OmniSINT now"
+#curl -s https://sonar.omnisint.io/subdomains/$TARGET | jq -r '.[]' | sort -u > 5.txt
+#sed -i 's/\*.//' 5.txt
+#echo "Subdomains from OmniSINT are"
+#cat 4.txt
+#echo "OmniSINT done"
+#sleep 2
+#clear
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt 4.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt 5.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
