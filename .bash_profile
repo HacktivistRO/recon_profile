@@ -36,7 +36,7 @@ echo "Subfinder done"
 sleep 2
 clear
 echo "Running CSPRecon now"
-csprecon -h $1 | grep ">*.$1" | sort -u > 4.txt
+csprecon -u https://$1 -s | grep ">*.$1” | sort -u > 4.txt
 sed -i 's/\*.//' 4.txt
 echo "Subdomains from CSPRecon are"
 cat 4.txt
@@ -54,19 +54,20 @@ clear
 #sleep 2
 #clear
 echo "enumerating subdomains using OpenSSL now"
-openssl s_client -ign_eof 2>/dev/null <<< $'HEAD / HTTP/1.0\r\n\r' -connect "$1:443" | openssl x509 -noout -text -in - | grep 'DNS' | sed -e 's|DNS:|\n|g' -e 's|^\*.*||g' | tr -d ',' | sort -u > 6.txt
-sed -i 's/\*.//' 6.txt
+true | openssl s_client -connect $1:443 2>/dev/null | openssl x509 -noout -text  | perl -l -0777 -ne '@names=/\bDNS:([^\s,]+)/g; print join("\n", sort @names);' > 6.txt
+sed  -i 's/\*.//' 6.txt
 echo "Subdomains from OpenSSL are"
 cat 6.txt
 echo "OpenSSL done"
 sleep 2
 clear
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
+#cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt 6.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
-rm 1.txt 2.txt 3.txt 4.txt subdomains.txt
+rm 1.txt 2.txt 3.txt 4.txt 6.txt subdomains.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains for $1"
 cat subdomains_$1.txt
