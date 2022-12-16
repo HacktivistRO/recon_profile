@@ -62,7 +62,7 @@ To use xss(), you need to write
 
 such as
 
-    xss leettime.net
+    xss rohan-website.com
  
 <p align="center">
 Happy Hacking!:heart:
