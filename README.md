@@ -9,6 +9,7 @@ Prerequisites
 4) SubFinder: https://github.com/projectdiscovery/subfinder
 5) CSPRecon: https://github.com/edoardottt/csprecon
 6) Cero: https://github.com/glebarez/cero
+7) Amass: https://github.com/OWASP/Amass
 
 How-To
 --
