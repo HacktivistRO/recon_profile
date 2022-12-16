@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Single command to find reflected XSS on any target
 xss() 
 {
@@ -36,7 +38,7 @@ echo "Subfinder done"
 sleep 2
 clear
 echo "Running CSPRecon now"
-csprecon -u https://$1 -s | grep ">*.$1” | sort -u > 4.txt
+csprecon -u https://$1 -s | grep ">*.$1" | sort -u > 4.txt
 sed -i 's/\*.//' 4.txt
 echo "Subdomains from CSPRecon are"
 cat 4.txt
@@ -66,6 +68,6 @@ sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
 rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt subdomains.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
-echo "Subdomains for $1"
+echo "Subdomains are:"
 cat subdomains_$1.txt
 }
