@@ -43,16 +43,14 @@ cat 4.txt
 echo "CSPRecon done"
 sleep 2
 clear
-#Omnisint is down from a few days and is expected to show up soon. Please uncomment the following lines once Omnisint is up
-#Please expect the error: "5.txt file not found" until Omnisint is up.
-#echo "Running OmniSINT now"
-#curl -s https://sonar.omnisint.io/subdomains/$TARGET | jq -r '.[]' | sort -u > 5.txt
-#sed -i 's/\*.//' 5.txt
-#echo "Subdomains from OmniSINT are"
-#cat 4.txt
-#echo "OmniSINT done"
-#sleep 2
-#clear
+echo "Running Amass now"
+amass enum -d $1 -active -passive -o 5.txt
+sed -i 's/\*.//' 5.txt
+echo "Subdomains from Amass are"
+cat 5.txt
+echo "Amass done"
+sleep 2
+clear
 echo "enumerating subdomains using OpenSSL now"
 true | openssl s_client -connect $1:443 2>/dev/null | openssl x509 -noout -text  | perl -l -0777 -ne '@names=/\bDNS:([^\s,]+)/g; print join("\n", sort @names);' > 6.txt
 sed  -i 's/\*.//' 6.txt
@@ -63,7 +61,7 @@ sleep 2
 clear
 echo "Removing duplicate and dead subdomains now"
 #cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
-cat 1.txt 2.txt 3.txt 4.txt 6.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
