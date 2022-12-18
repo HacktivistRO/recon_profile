@@ -29,6 +29,8 @@ cat 2.txt
 echo "crt.sh done"
 sleep 2
 clear
+echo "Cero done"
+echo "crt.sh done"
 echo "Running subfinder now"
 subfinder -d $1 -silent -recursive -all | grep ">*.$1" | sort -u > 3.txt
 sed -i 's/\*.//' 3.txt
@@ -37,38 +39,71 @@ cat 3.txt
 echo "Subfinder done"
 sleep 2
 clear
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
 echo "Running CSPRecon now"
 csprecon -u https://$1 -s | grep ">*.$1" | sort -u > 4.txt
 sed -i 's/\*.//' 4.txt
 echo "Subdomains from CSPRecon are"
 cat 4.txt
-echo "CSPRecon done"
 sleep 2
 clear
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
+echo "CSPRecon done"
 echo "Running Amass now"
 amass enum -d $1 -active -passive -o 5.txt
 sed -i 's/\*.//' 5.txt
 echo "Subdomains from Amass are"
 cat 5.txt
-echo "Amass done"
 sleep 2
 clear
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
+echo "CSPRecon done"
+echo "Amass done"
 echo "enumerating subdomains using OpenSSL now"
 true | openssl s_client -connect $1:443 2>/dev/null | openssl x509 -noout -text  | perl -l -0777 -ne '@names=/\bDNS:([^\s,]+)/g; print join("\n", sort @names);' > 6.txt
 sed  -i 's/\*.//' 6.txt
 echo "Subdomains from OpenSSL are"
 cat 6.txt
-echo "OpenSSL done"
 sleep 2
 clear
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
+echo "CSPRecon done"
+echo "Amass done"
+echo "OpenSSL done"
 echo "Running Gotator now. This might take a while!"
 echo "$1" > domain.txt
 gotator -adv -mindup -sub domain.txt -numbers 10 -depth 3 -silent | sort -u > 7.txt
-echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt | grep ">*.$1" > subdomains.txt
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
+echo "CSPRecon done"
+echo "Amass done"
+echo "OpenSSL done"
+echo "Gotator done"
+echo "Removing duplicate subdomains now"
+cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt | grep ">*.$1" | sort -u > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
-cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
+clear
+echo "Cero done"
+echo "crt.sh done"
+echo "Subfinder done"
+echo "CSPRecon done"
+echo "Amass done"
+echo "OpenSSL done"
+echo "Gotator done"
+echo "Removing duplicate subdomains done"
+echo "Removing dead subdomains now"
+cat subdomains.txt | httprobe > subdomains_$1.txt
+echo "Dead subdomains filtered. Clearing temporary files now."
 rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt subdomains.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains are:"
