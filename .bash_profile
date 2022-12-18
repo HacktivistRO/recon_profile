@@ -81,6 +81,9 @@ echo "OpenSSL done"
 echo "Running Gotator now. This might take a while!"
 echo "$1" > domain.txt
 gotator -adv -mindup -sub domain.txt -numbers 10 -depth 3 -silent | sort -u > 7.txt
+echo "Gotator done" 
+sleep 2
+clear
 echo "Cero done"
 echo "crt.sh done"
 echo "Subfinder done"
@@ -104,7 +107,7 @@ echo "Removing duplicate subdomains done"
 echo "Removing dead subdomains now"
 cat subdomains.txt | httprobe > subdomains_$1.txt
 echo "Dead subdomains filtered. Clearing temporary files now."
-rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt subdomains.txt
+rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt subdomains.txt domain.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains are:"
 cat subdomains_$1.txt
