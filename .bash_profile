@@ -61,12 +61,15 @@ cat 6.txt
 echo "OpenSSL done"
 sleep 2
 clear
+echo "Running Gotator now. This might take a while!"
+echo "$1" > domain.txt
+gotator -adv -mindup -sub domain.txt -numbers 10 -depth 3 -silent | sort -u > 7.txt
 echo "Removing duplicate and dead subdomains now"
-cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt | grep ">*.$1" > subdomains.txt
+cat 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt | grep ">*.$1" > subdomains.txt
 sed -i 's/\*//' subdomains.txt
 sed -i 's/\.//' subdomains.txt
 cat subdomains.txt | sort -u | httprobe > subdomains_$1.txt
-rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt subdomains.txt
+rm 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt subdomains.txt
 echo "Live subdomains stored in subdomains_$1.txt file"
 echo "Subdomains are:"
 cat subdomains_$1.txt
