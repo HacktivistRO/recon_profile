@@ -5,7 +5,6 @@ xss()
 {
 Finding reflected XSS on: $1"
 printf $1 | gau | grep '=' | qsreplace hack\" -a | while read url;do target=$(curl -s -l $url | egrep -o '(hack"|hack\\")'); echo -e "Target:\e[1;33m $url\e[0m" "$target" "\n-------"; done | sed 's/hack"/[Xss Possible] Reflection Found/g'
-rm subdomains_$1.txt
 }
 # command to find unique live subdomains 
 subdomains()
