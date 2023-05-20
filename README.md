@@ -1,4 +1,7 @@
 # Namaste 🙏
+
+![](https://komarev.com/ghpvc/?username=HacktivistRO&style=for-the-badge)
+
 This repository contains my .bash_profile that has some user-defined functions for automating tasks using BASH
 
 Prerequisites
